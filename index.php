@@ -3,6 +3,7 @@ header('Content-Type: text/plain');
 
 require_once __DIR__ . '/includes/misc.php';
 require_once __DIR__ . '/includes/graphdraw.php';
+require_once __DIR__ . '/includes/matrix.php';
 
 if (!extension_loaded('gd')) error('PHP GD is required! Uncomment "extension=gd" in Your "php.ini" file!');
 
@@ -23,4 +24,7 @@ $adjacency_list = is_file($filename) ? file_get_contents($filename) : $filename;
 $adjacency_list = json_decode($adjacency_list) or error("Failed to decode given adjacency list.");
 
 // Call GraphDraw to create PNG image with graph visualisation
-generate_image($adjacency_list, __DIR__ . '/graph.png');
+$edges = generate_image($adjacency_list, __DIR__ . '/graph.png');
+
+// Generate incident matrix basing on edges array
+generate_incident_matrix($edges, $adjacency_list);
