@@ -36,5 +36,23 @@ Script takes JSON formatted adjacency list only!
 
 Script is generating PNG image called `graph.png`, in the same directory, where `index.php` is located. Additionaly, incident matrix is generated and displayed in console.
 
-List `[[2, 3], [0, 2, 3, 4], [1, 3, 4], [0, 4], [0]]` will produce the following image:
+## Example
+
+List `[[2, 3], [0, 2, 3, 4], [1, 3, 4], [0, 4], [0]]` will generate the following output:
+
+```
+Graph visualisation is saved to graph.png
+
+Incident matrix:
+        | 1  2  3  4  5  6  7  8  9  10
+--------+-------------------------------
+1       | 1  1  1  0  0  0  0  0  0  1
+2       | 0  0  1  1  1  1  0  0  0  0
+3       | 1  0  0  1  0  0  1  1  0  0
+4       | 0  1  0  0  1  0  1  0  1  0
+5       | 0  0  0  0  0  1  0  1  1  1
+```
+
+## Generated graph visualisation:
+
 ![graph](example/graph.png)
