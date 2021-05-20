@@ -38,14 +38,14 @@ function print_matrix(array $matrix): void
 }
 
 /**
- * Generates and prints incident matrix basing on graph's edges and adjacency list
+ * Generates and prints incidence matrix basing on graph's edges and adjacency list
  * 
  * @param array $edges Array of edges
  * @param array $adjacency_list Adjacency list
  * 
- * @return array Incident matrix
+ * @return array incidence matrix
  */
-function generate_incident_matrix(array $edges, array $adjacency_list): array
+function generate_incidence_matrix(array $edges, array $adjacency_list): array
 {
     $matrix = [];
     foreach ($adjacency_list as $i => $verticles) {
@@ -57,7 +57,7 @@ function generate_incident_matrix(array $edges, array $adjacency_list): array
         $matrix[$edge['start']][$i] = 1;
         $matrix[$edge['end']][$i] = 1;
     }
-    echo PHP_EOL . 'Incident matrix:' . PHP_EOL;
+    echo PHP_EOL . 'incidence matrix:' . PHP_EOL;
     print_matrix($matrix);
     return $matrix;
 }

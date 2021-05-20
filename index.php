@@ -26,5 +26,5 @@ $adjacency_list = json_decode($adjacency_list) or error("Failed to decode given 
 // Call GraphDraw to create PNG image with graph visualisation
 $edges = generate_image($adjacency_list, __DIR__ . '/graph.png');
 
-// Generate incident matrix basing on edges array
-generate_incident_matrix($edges, $adjacency_list);
+// Generate incidence matrix basing on edges array
+generate_incidence_matrix($edges, $adjacency_list);
