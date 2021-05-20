@@ -57,6 +57,7 @@ function generate_incident_matrix(array $edges, array $adjacency_list): array
         $matrix[$edge['start']][$i] = 1;
         $matrix[$edge['end']][$i] = 1;
     }
+    echo PHP_EOL . 'Incident matrix:' . PHP_EOL;
     print_matrix($matrix);
     return $matrix;
 }
