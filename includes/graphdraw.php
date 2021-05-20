@@ -109,8 +109,10 @@ function draw_verticles(GdImage $image, array $verticle_coords, int $diameter): 
  * 
  * @param array $adjacency_list Graph's adjacency list
  * @param string $path Destination path of result image
+ * 
+ * @return array Array of edges in graph
  */
-function generate_image(array $adjacency_list, string $path): void
+function generate_image(array $adjacency_list, string $path): array
 {
     $image = imagecreate(800, 600);
     imagefilledrectangle($image, 0, 0, 800, 600, rgb($image, 'ffffff'));
@@ -121,4 +123,5 @@ function generate_image(array $adjacency_list, string $path): void
     imagepng($image, $path);
     echo "Graph visualisation is saved to $path" . PHP_EOL;
     imagedestroy($image);
+    return $edges;
 }
