@@ -48,7 +48,7 @@ function print_matrix(array $matrix): void
 function generate_incidence_matrix(array $edges, array $adjacency_list): array
 {
     $matrix = [];
-    foreach ($adjacency_list as $i => $verticles) {
+    foreach ($adjacency_list as $i => $vertices) {
         foreach ($edges as $j => $edge) {
             $matrix[$i][$j] = 0;
         }

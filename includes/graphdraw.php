@@ -19,25 +19,25 @@ function rgb(GdImage $image, string $hex): int|false
 }
 
 /**
- * Calculate coordinates of the verticles
+ * Calculate coordinates of the vertices
  * 
- * @param int $count Amount of verticles
+ * @param int $count Amount of vertices
  * 
- * @return array Array of the coordinates of the verticles
+ * @return array Array of the coordinates of the vertices
  */
-function calculate_verticles(int $count): array
+function calculate_vertices(int $count): array
 {
     for ($i = 0; $i < $count; $i++) {
         $angle = (2 * pi() * $i / $count) - 0.5 * pi();
         $x = (200 * cos($angle)) + 400;
         $y = (200 * sin($angle)) + 300;
-        $verticle_coords[] = ['x' => $x, 'y' => $y];
+        $vertex_coords[] = ['x' => $x, 'y' => $y];
     }
-    return $verticle_coords;
+    return $vertex_coords;
 }
 
 /**
- * Calculate edge's start and end verticles
+ * Calculate edge's start and end vertices
  * 
  * @param array $adjacency_list Graph's adjacency list
  * 
@@ -46,11 +46,11 @@ function calculate_verticles(int $count): array
 function calculate_edges(array $adjacency_list): array
 {
     $edges = [];
-    foreach ($adjacency_list as $verticle => $neighbors) {
+    foreach ($adjacency_list as $vertex => $neighbors) {
         foreach ($neighbors as $neighbor) {
-            if (!in_array(['start' => $verticle, 'end' => $neighbor], $edges) && !in_array(['start' => $neighbor, 'end' => $verticle], $edges)) {
+            if (!in_array(['start' => $vertex, 'end' => $neighbor], $edges) && !in_array(['start' => $neighbor, 'end' => $vertex], $edges)) {
                 $edges[] = [
-                    'start' => $verticle,
+                    'start' => $vertex,
                     'end' => $neighbor
                 ];
             }
@@ -60,45 +60,45 @@ function calculate_edges(array $adjacency_list): array
 }
 
 /**
- * Draw edges between specified graph's verticles
+ * Draw edges between specified graph's vertices
  * 
  * @param GdImage $image Image, where edges have to be drawed
- * @param array $start Start verticle
- * @param array $end End verticle
+ * @param array $start Start vertex
+ * @param array $end End vertex
  * @param int $color The line color. A color identifier created with `rgb(GdImage, string)`
  */
-function connect_verticles(GdImage $image, array $start, array $end, int $color): void
+function connect_vertices(GdImage $image, array $start, array $end, int $color): void
 {
     imageline($image, $start['x'], $start['y'], $end['x'], $end['y'], $color);
 }
 
 /**
- * Connect all verticles in the graph
+ * Connect all vertices in the graph
  * 
  * @param GdImage $image Image, where edges have to be drawed
  * @param array $edges Array of edges
- * @param array $verticle_coords Coordinates of the verticles
+ * @param array $vertex_coords Coordinates of the vertices
  */
-function draw_edges(GdImage $image, array $edges, array $verticle_coords): void
+function draw_edges(GdImage $image, array $edges, array $vertex_coords): void
 {
     foreach ($edges as $edge) {
-        connect_verticles($image, $verticle_coords[$edge['start']], $verticle_coords[$edge['end']], rgb($image, '03a9f4'));
+        connect_vertices($image, $vertex_coords[$edge['start']], $vertex_coords[$edge['end']], rgb($image, '03a9f4'));
     }
 }
 
 /**
- * Draw verticles in calculated coordinates
+ * Draw vertices in calculated coordinates
  * 
- * @param GdImage $image Image, where verticles have to be drawed
- * @param array $verticle_coords Coordinates of the verticles
- * @param int $diameter Verticle diameter
+ * @param GdImage $image Image, where vertices have to be drawed
+ * @param array $vertex_coords Coordinates of the vertices
+ * @param int $diameter vertex diameter
  */
-function draw_verticles(GdImage $image, array $verticle_coords, int $diameter): void
+function draw_vertices(GdImage $image, array $vertex_coords, int $diameter): void
 {
-    foreach ($verticle_coords as $i => $verticle) {
-        $text_x = $verticle['x'] - $diameter / 8;
-        $text_y = $verticle['y'] - $diameter / 4;
-        imagefilledellipse($image, $verticle['x'], $verticle['y'], $diameter, $diameter, rgb($image, 'f44336'));
+    foreach ($vertex_coords as $i => $vertex) {
+        $text_x = $vertex['x'] - $diameter / 8;
+        $text_y = $vertex['y'] - $diameter / 4;
+        imagefilledellipse($image, $vertex['x'], $vertex['y'], $diameter, $diameter, rgb($image, 'f44336'));
         imagestring($image, 5, $i < 9 ? $text_x : $text_x - $diameter / 8, $text_y, $i, rgb($image, 'ffffff'));
         imagestring($image, 5, 10, 580, 'Generated: ' . date('Y-m-d H:i:s'), rgb($image, '000000'));
     }
@@ -116,10 +116,10 @@ function generate_image(array $adjacency_list, string $path): array
 {
     $image = imagecreate(800, 600);
     imagefilledrectangle($image, 0, 0, 800, 600, rgb($image, 'ffffff'));
-    $verticle_coords = calculate_verticles(count($adjacency_list));
+    $vertex_coords = calculate_vertices(count($adjacency_list));
     $edges = calculate_edges($adjacency_list);
-    draw_edges($image, $edges, $verticle_coords);
-    draw_verticles($image, $verticle_coords, 30);
+    draw_edges($image, $edges, $vertex_coords);
+    draw_vertices($image, $vertex_coords, 30);
     imagepng($image, $path);
     echo "Graph visualisation is saved to $path" . PHP_EOL;
     imagedestroy($image);
