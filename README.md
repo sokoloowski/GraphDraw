@@ -1,5 +1,7 @@
 # GraphDraw
 
+This is a part of the project for Graphs Theory.
+
 [![wakatime](https://wakatime.com/badge/github/sokoloowski/GraphDraw.svg)](https://wakatime.com/badge/github/sokoloowski/GraphDraw)
 [![php](https://img.shields.io/badge/language-PHP-%237478AE)](https://www.php.net/)
 [![gd](https://img.shields.io/badge/dependencies-gd-important)](https://www.php.net/manual/en/book.image.php)
