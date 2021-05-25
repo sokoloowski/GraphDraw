@@ -43,7 +43,7 @@ Script is generating PNG image called `graph.png`, in the same directory, where 
 List `[[2, 3], [0, 2, 3, 4], [1, 3, 4], [0, 4], [0]]` will generate the following output:
 
 ```
-Graph visualisation is saved to graph.png
+Graph visualisation is saved to D:\GraphDraw\output\graph.png
 
 incidence matrix:
         | 1  2  3  4  5  6  7  8  9  10
