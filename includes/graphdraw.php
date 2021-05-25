@@ -120,6 +120,7 @@ function generate_image(array $adjacency_list, string $path): array
     $edges = calculate_edges($adjacency_list);
     draw_edges($image, $edges, $vertex_coords);
     draw_vertices($image, $vertex_coords, 30);
+    if (!is_dir(dirname($path))) mkdir(dirname($path));
     imagepng($image, $path);
     echo "Graph visualisation is saved to $path" . PHP_EOL;
     imagedestroy($image);
