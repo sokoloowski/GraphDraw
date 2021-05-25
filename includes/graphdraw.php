@@ -99,7 +99,7 @@ function draw_vertices(GdImage $image, array $vertex_coords, int $diameter): voi
         $text_x = $vertex['x'] - $diameter / 8;
         $text_y = $vertex['y'] - $diameter / 4;
         imagefilledellipse($image, $vertex['x'], $vertex['y'], $diameter, $diameter, rgb($image, 'f44336'));
-        imagestring($image, 5, $i < 9 ? $text_x : $text_x - $diameter / 8, $text_y, $i, rgb($image, 'ffffff'));
+        imagestring($image, 5, $i <= 9 ? $text_x : $text_x - $diameter / 8, $text_y, $i, rgb($image, 'ffffff'));
         imagestring($image, 5, 10, 580, 'Generated: ' . date('Y-m-d H:i:s'), rgb($image, '000000'));
     }
 }
