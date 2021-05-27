@@ -39,6 +39,24 @@ function print_matrix(array $matrix): void
 }
 
 /**
+ * Generates matrix of zeros
+ * 
+ * @param int $x Width of matrix
+ * @param int $y Height of matrix. If not specified or not positive, defaults to $x
+ * 
+ * @return array Matrix of zeros
+ */
+function zeros(int $x, int $y = -1): array
+{
+    if ($y <= 0) $y = $x;
+    $matrix = [];
+    for ($i = 0; $i < $y; $i++)
+        for ($j = 0; $j < $x; $j++)
+            $matrix[$i][$j] = 0;
+    return $matrix;
+}
+
+/**
  * Generates and prints incidence matrix basing on graph's edges and adjacency list
  * 
  * @param array $edges Array of edges
