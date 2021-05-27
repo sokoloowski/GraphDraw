@@ -48,17 +48,12 @@ function print_matrix(array $matrix): void
  */
 function generate_incidence_matrix(array $edges, array $adjacency_list): array
 {
-    $matrix = [];
-    foreach ($adjacency_list as $i => $vertices) {
-        foreach ($edges as $j => $edge) {
-            $matrix[$i][$j] = 0;
-        }
-    }
+    echo PHP_EOL . 'incidence matrix:' . PHP_EOL;
+    $matrix = zeros(count($edges), count($adjacency_list));
     foreach ($edges as $i => $edge) {
         $matrix[$edge['start']][$i] = 1;
         $matrix[$edge['end']][$i] = 1;
     }
-    echo PHP_EOL . 'incidence matrix:' . PHP_EOL;
     print_matrix($matrix);
     return $matrix;
 }
