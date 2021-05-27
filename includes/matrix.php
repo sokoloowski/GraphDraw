@@ -62,3 +62,23 @@ function generate_incidence_matrix(array $edges, array $adjacency_list): array
     print_matrix($matrix);
     return $matrix;
 }
+
+/**
+ * Generates and prints adjacency matrix basing on graph's edges and adjacency list
+ * 
+ * @param array $edges Array of edges
+ * @param array $adjacency_list Adjacency list
+ * 
+ * @return array adjacency matrix
+ */
+function generate_adjacency_matrix(array $edges, array $adjacency_list): array
+{
+    echo PHP_EOL . 'adjacency matrix:' . PHP_EOL;
+    $matrix = zeros(count($adjacency_list));
+    foreach ($edges as $edge) {
+        $matrix[$edge['start']][$edge['end']] = 1;
+        $matrix[$edge['end']][$edge['start']] = 1;
+    }
+    print_matrix($matrix);
+    return $matrix;
+}
