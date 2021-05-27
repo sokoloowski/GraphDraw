@@ -29,7 +29,7 @@ function print_matrix(array $matrix): void
     foreach ($matrix as $i => $row) {
         echo PHP_EOL . "$i\t| ";
         foreach ($row as $j => $cell) {
-            if ($cell == 1) echo "\033[41m";
+            if ($cell == 1) echo "\033[31m";
             echo $cell;
             if ($cell == 1) echo "\033[0m";
             echo "  ";
