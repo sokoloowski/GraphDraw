@@ -36,7 +36,7 @@ Script takes JSON formatted adjacency list only!
 
 ## Output
 
-Script is generating PNG image called `graph.png`, in the same directory, where `index.php` is located. Additionaly, incidence matrix is generated and displayed in console.
+Script is generating PNG image called `output/graph.png`, in the same directory, where `index.php` is located. Additionaly, incidence matrix is generated and displayed in console as well as adjacency matrix.
 
 ## Example
 
@@ -53,6 +53,15 @@ incidence matrix:
 3       | 1  0  0  1  0  0  1  1  0  0
 4       | 0  1  0  0  1  0  1  0  1  0
 5       | 0  0  0  0  0  1  0  1  1  1
+
+adjacency matrix:
+        | 1  2  3  4  5
+--------+----------------
+0       | 0  1  1  1  1
+1       | 1  0  1  1  1
+2       | 1  1  0  1  1  
+3       | 1  1  1  0  1
+4       | 1  1  1  1  0
 ```
 
 ## Generated graph visualisation:
