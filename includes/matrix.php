@@ -35,6 +35,7 @@ function print_matrix(array $matrix): void
             echo "  ";
         }
     }
+    echo PHP_EOL;
 }
 
 /**
