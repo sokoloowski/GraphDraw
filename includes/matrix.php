@@ -62,7 +62,7 @@ function zeros(int $x, int $y = -1): array
  * @param array $edges Array of edges
  * @param array $adjacency_list Adjacency list
  * 
- * @return array incidence matrix
+ * @return array Incidence matrix
  */
 function generate_incidence_matrix(array $edges, array $adjacency_list): array
 {
@@ -82,7 +82,7 @@ function generate_incidence_matrix(array $edges, array $adjacency_list): array
  * @param array $edges Array of edges
  * @param array $adjacency_list Adjacency list
  * 
- * @return array adjacency matrix
+ * @return array Adjacency matrix
  */
 function generate_adjacency_matrix(array $edges, array $adjacency_list): array
 {
