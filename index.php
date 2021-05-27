@@ -29,3 +29,4 @@ $edges = generate_image($adjacency_list, __DIR__ . DIRECTORY_SEPARATOR . 'output
 
 // Generate incidence matrix basing on edges array
 generate_incidence_matrix($edges, $adjacency_list);
+generate_adjacency_matrix($edges, $adjacency_list);
